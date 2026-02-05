@@ -5,88 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap");
     :root {
-      --text: #1b1b1b;
-      --muted: #6f6a63;
-      --border: #e4e0da;
-      --bg: #f7f3ed;
-      --surface: #fffdf9;
-      --accent: #1a1a1a;
-      --highlight: #c76b3a;
-      --shadow: 0 24px 60px rgba(25, 22, 19, 0.08);
+      --ink: #1a1a18;
+      --muted: #6b6a64;
+      --line: rgba(26, 26, 24, 0.12);
+      --paper: #f7f6f1;
+      --wash: #ece9e1;
+      --accent: #3f5b52;
+      --accent-soft: rgba(63, 91, 82, 0.16);
+      --shadow: 0 18px 40px rgba(26, 26, 24, 0.08);
     }
     * { box-sizing: border-box; }
     body {
-      font-family: "IBM Plex Sans", "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      line-height: 1.8;
+      font-family: "Source Sans 3", "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.85;
       margin: 0;
-      color: var(--text);
+      color: var(--ink);
       background:
-        radial-gradient(1200px 800px at 10% -10%, #f1e7dc 0%, transparent 60%),
-        radial-gradient(900px 600px at 90% 0%, #f5efe6 0%, transparent 55%),
-        var(--bg);
+        radial-gradient(900px 520px at 8% -10%, rgba(63, 91, 82, 0.06), transparent 60%),
+        radial-gradient(900px 600px at 92% 0%, rgba(26, 26, 24, 0.05), transparent 55%),
+        linear-gradient(180deg, #fbfaf5 0%, var(--wash) 100%);
       min-height: 100vh;
     }
     .container {
-      max-width: 980px;
-      margin: 40px auto 52px;
-      padding: 36px 40px 48px;
-      background: var(--surface);
-      border: 1px solid rgba(27, 27, 27, 0.08);
-      border-radius: 14px;
+      max-width: 920px;
+      margin: 48px auto 60px;
+      padding: 40px 44px 52px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
       box-shadow: var(--shadow);
+      position: relative;
+      animation: pageIn 0.6s ease-out;
+    }
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: 44px;
+      right: 44px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(26, 26, 24, 0.2), transparent);
     }
     .site-header {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
       gap: 20px;
-      border-bottom: 1px solid rgba(27, 27, 27, 0.08);
-      padding-bottom: 16px;
+      padding-bottom: 18px;
       margin-bottom: 28px;
+      border-bottom: 1px solid var(--line);
     }
     h1, h2, h3 {
-      color: var(--accent);
-      letter-spacing: 0.3px;
-      font-family: "Fraunces", "Noto Serif CJK SC", "Songti SC", serif;
+      color: var(--ink);
+      letter-spacing: 0.2px;
+      font-family: "EB Garamond", "Noto Serif CJK SC", "Songti SC", serif;
     }
-    h1 { font-size: 2.4em; margin: 0 0 18px 0; }
+    h1 { font-size: 2.5em; margin: 0 0 18px 0; }
     h2 { font-size: 1.7em; margin-top: 36px; margin-bottom: 18px; }
+    h3 { font-size: 1.25em; margin-top: 24px; }
     .site-title {
       font-size: 2.1em;
       font-weight: 600;
-      font-family: "Fraunces", "Noto Serif CJK SC", "Songti SC", serif;
+      letter-spacing: 0.6px;
+      font-family: "EB Garamond", "Noto Serif CJK SC", "Songti SC", serif;
     }
-    .site-title a { text-decoration: none; }
-    nav { display: flex; gap: 12px; flex-wrap: wrap; }
+    .site-title a { text-decoration: none; color: inherit; }
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
     nav a {
       text-decoration: none;
       color: var(--muted);
       font-weight: 500;
-      padding: 2px 0;
+      font-size: 0.9em;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       position: relative;
+      padding-bottom: 6px;
     }
     nav a::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -4px;
+      bottom: 0;
       width: 100%;
-      height: 2px;
-      background: var(--highlight);
+      height: 1px;
+      background: var(--accent);
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.2s ease;
     }
-    nav a:hover { color: var(--accent); }
+    nav a:hover { color: var(--ink); }
     nav a:hover::after,
     nav a[aria-current="page"]::after { transform: scaleX(1); }
-    nav a[aria-current="page"] { color: var(--accent); }
+    nav a[aria-current="page"] { color: var(--ink); }
     a { color: var(--accent); text-decoration: none; font-weight: 600; }
     a:hover { text-decoration: underline; }
     a:focus-visible {
-      outline: 2px solid rgba(27, 27, 27, 0.2);
+      outline: 2px solid var(--accent-soft);
       outline-offset: 2px;
     }
     .hero {
@@ -102,24 +118,30 @@
     .section {
       margin-top: 32px;
       padding-top: 6px;
+      animation: sectionIn 0.7s ease both;
     }
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
+      gap: 18px;
       margin-top: 20px;
     }
     .card {
-      background: #fffaf4;
+      background: #ffffff;
       border-radius: 12px;
       padding: 18px 20px;
-      border: 1px solid rgba(27, 27, 27, 0.08);
+      border: 1px solid var(--line);
+      box-shadow: 0 6px 20px rgba(26, 26, 24, 0.05);
+      transition: box-shadow 0.2s ease;
+    }
+    .card:hover {
+      box-shadow: 0 10px 26px rgba(26, 26, 24, 0.08);
     }
     .card-title {
       display: block;
       font-size: 1.05em;
       margin-bottom: 8px;
-      color: var(--accent);
+      color: var(--ink);
     }
     .post-date {
       color: var(--muted);
@@ -127,46 +149,73 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .post-date::before {
+      content: "•";
+      color: var(--accent);
+      font-size: 1em;
+      line-height: 1;
     }
     .post-content {
       margin-top: 20px;
       font-size: 1.05em;
-      line-height: 1.9;
+      line-height: 1.95;
     }
     .post-content p {
       margin-bottom: 1em;
     }
     .post-content ul {
-      list-style: disc;
+      list-style: circle;
       padding-left: 1.2em;
     }
     .post-content ol {
       padding-left: 1.4em;
     }
     .post-content blockquote {
-      margin: 16px 0;
-      padding: 12px 16px;
-      border-left: 3px solid var(--highlight);
-      background: #faf3ea;
-      color: #4d463f;
+      margin: 18px 0;
+      padding: 14px 18px;
+      border-left: 2px solid var(--accent);
+      background: rgba(63, 91, 82, 0.06);
+      color: #3b3b36;
+      font-style: italic;
+    }
+    .post-content blockquote::before {
+      content: "“";
+      font-size: 2em;
+      color: var(--accent);
+      margin-right: 6px;
+      vertical-align: -0.2em;
     }
     .post-content code {
       font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
-      background: #f1e9de;
-      padding: 2px 4px;
+      background: rgba(16, 16, 15, 0.08);
+      padding: 2px 5px;
       border-radius: 4px;
       font-size: 0.95em;
     }
     .post-content img {
       max-width: 100%;
-      border-radius: 6px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
     }
     .article-shell {
-      background: var(--surface);
-      border-radius: 12px;
-      padding: 24px 26px;
-      border: 1px solid rgba(27, 27, 27, 0.08);
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 26px 28px;
+      border: 1px solid var(--line);
+      position: relative;
+    }
+    .article-shell::after {
+      content: "";
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 16px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+      opacity: 0.6;
     }
     .article-meta {
       display: flex;
@@ -175,38 +224,52 @@
       align-items: center;
       color: var(--muted);
       margin-bottom: 18px;
-      font-size: 0.95em;
+      font-size: 0.9em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
     .pill {
       padding: 4px 10px;
-      border-radius: 6px;
-      background: #f3ebe2;
-      color: #4f463c;
-      font-weight: 500;
-      font-size: 0.85em;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.8em;
     }
     .back-link {
       margin-top: 40px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(27, 27, 27, 0.08);
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
     }
     footer {
       text-align: center;
       color: var(--muted);
-      font-size: 0.9em;
-      padding: 20px;
-      border-top: 1px solid rgba(27, 27, 27, 0.08);
+      font-size: 0.85em;
+      padding: 22px 0 8px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    @keyframes pageIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes sectionIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     @media (max-width: 920px) {
-      .container { margin: 20px; padding: 28px; }
+      .container { margin: 24px; padding: 30px; }
+      .container::before { left: 30px; right: 30px; }
     }
     @media (max-width: 768px) {
       .container { margin: 16px; padding: 22px; }
+      .container::before { left: 22px; right: 22px; }
       .site-header { flex-direction: column; align-items: flex-start; gap: 12px; }
       .hero { padding: 16px 0 0; }
       h1 { font-size: 2em; }
       h2 { font-size: 1.5em; }
       .card-grid { grid-template-columns: 1fr; }
+      nav a { letter-spacing: 0.12em; }
     }
   </style>
 </head>
@@ -225,7 +288,7 @@
       {{ content }}
     </main>
     <footer>
-      <p>© 2026 Daily Agent · 由 GitHub Pages 驱动</p>
+      <p>© 2026 Xiaodouzi · 由 GitHub Pages 驱动</p>
     </footer>
   </div>
 </body>
