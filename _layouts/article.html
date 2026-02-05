@@ -3,13 +3,10 @@ layout: default
 ---
 
 <article class="article-shell">
-  <header>
-    <div>
-      <h1>{{ page.title }}</h1>
-      <div class="article-meta">
-        <span class="pill">日志</span>
-        <span class="post-date">🗓 {{ page.date | date: "%Y年%m月%d日 %H:%M" }}</span>
-      </div>
+  <header class="article-heading">
+    <h1>{{ page.title }}</h1>
+    <div class="article-meta">
+      <span class="post-date">{{ page.date | date: "%Y年%m月%d日 %H:%M" }}</span>
     </div>
   </header>
 

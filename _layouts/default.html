@@ -200,6 +200,17 @@
       border: none;
       position: relative;
     }
+    .article-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .article-shell h1 {
+      margin: 0;
+    }
     .article-shell::after {
       content: none;
     }
@@ -209,7 +220,7 @@
       gap: 12px;
       align-items: center;
       color: var(--muted);
-      margin-bottom: 18px;
+      margin-bottom: 0;
       font-size: 0.9em;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -223,8 +234,8 @@
       font-size: 0.8em;
     }
     .back-link {
-      margin-top: 40px;
-      padding-top: 18px;
+      margin-top: 28px;
+      padding-top: 12px;
       border-top: 1px solid rgba(26, 26, 24, 0.08);
     }
     footer {
