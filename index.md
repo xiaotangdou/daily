@@ -18,7 +18,7 @@ title: 首页
   {% for post in site.posts %}
   <div class="post-row">
     <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    <div class="post-date">{{ post.date | date: "%Y-%m-%d" }}</div>
+    <div class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</div>
   </div>
   {% endfor %}
 </div>
