@@ -114,41 +114,29 @@
       padding-top: 6px;
       animation: sectionIn 0.7s ease both;
     }
-    .card-grid {
-      display: block;
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       margin-top: 20px;
     }
-    .card {
-      background: transparent;
-      border-radius: 0;
-      padding: 12px 0;
-      border: none;
-      box-shadow: none;
-      transition: none;
+    .post-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 4px 0;
     }
-    .card:hover {
-      box-shadow: none;
-    }
-    .card-title {
-      display: block;
+    .post-title {
       font-size: 1.05em;
-      margin-bottom: 8px;
       color: var(--ink);
     }
     .post-date {
       color: var(--muted);
-      font-size: 0.9em;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      letter-spacing: 0.14em;
+      font-size: 0.85em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-    }
-    .post-date::before {
-      content: "•";
-      color: var(--accent);
-      font-size: 1em;
-      line-height: 1;
+      white-space: nowrap;
     }
     .post-content {
       margin-top: 20px;
@@ -263,7 +251,7 @@
       .hero { padding: 16px 0 0; }
       h1 { font-size: 2em; }
       h2 { font-size: 1.5em; }
-      .card-grid { grid-template-columns: 1fr; }
+      .post-row { flex-direction: column; align-items: flex-start; gap: 6px; }
       nav a { letter-spacing: 0.12em; }
     }
   </style>

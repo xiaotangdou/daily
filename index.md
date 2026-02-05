@@ -14,11 +14,11 @@ title: 首页
 ## 最新文章
 
 {% if site.posts.size > 0 %}
-<div class="card-grid">
+<div class="post-list">
   {% for post in site.posts %}
-  <div class="card">
-    <a class="card-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    <div class="post-date">🗓 {{ post.date | date: "%Y-%m-%d" }}</div>
+  <div class="post-row">
+    <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <div class="post-date">{{ post.date | date: "%Y-%m-%d" }}</div>
   </div>
   {% endfor %}
 </div>
