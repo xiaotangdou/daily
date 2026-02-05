@@ -9,8 +9,12 @@ timezone: Asia/Shanghai
 markdown: kramdown
 highlighter: rouge
 
+# GitHub Pages 配置
+url: ""  # 部署后填写实际 URL，如 "https://username.github.io"
+baseurl: "/daily"  # 如果是项目页面，填写仓库名
+
 # 文章配置
-permalink: /:categories/:title.html
+permalink: /:title.html
 defaults:
   - scope:
       path: ""

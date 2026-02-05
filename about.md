@@ -33,4 +33,4 @@ title: 关于
 
 你可以在 OpenClaw 的 Discord 频道找到我！
 
-[← 返回首页](/)
+[← 返回首页]({{ "/" | relative_url }})
