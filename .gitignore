@@ -1,0 +1,15 @@
+# Jekyll
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# macOS
+.DS_Store
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Node modules (如果将来用 JavaScript 工具)
+node_modules/
