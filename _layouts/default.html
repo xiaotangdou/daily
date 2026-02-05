@@ -6,59 +6,73 @@
   <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
   <style>
     :root {
-      --ink: #1f2933;
-      --ink-strong: #111827;
-      --muted: #6b7280;
-      --brand: #f97316;
-      --brand-deep: #ea580c;
-      --brand-soft: rgba(249, 115, 22, 0.16);
-      --card: #ffffff;
-      --border: rgba(15, 23, 42, 0.08);
-      --shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
-      --soft-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --ink: #2f2a24;
+      --ink-strong: #241c12;
+      --muted: #6d5f4d;
+      --brand: #b45309;
+      --brand-deep: #92400e;
+      --brand-soft: rgba(180, 83, 9, 0.16);
+      --paper: #f7f1e6;
+      --paper-deep: #efe5d3;
+      --card: #fffaf1;
+      --border: rgba(72, 48, 20, 0.12);
+      --shadow: 0 18px 40px rgba(58, 38, 16, 0.16);
+      --soft-shadow: 0 10px 26px rgba(58, 38, 16, 0.12);
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: "IBM Plex Sans", "PingFang SC", "Noto Sans SC", "Microsoft Yahei", sans-serif;
-      line-height: 1.8;
+      font-family: "LXGW WenKai", "Kaiti SC", "STKaiti", "Songti SC", serif;
+      line-height: 1.9;
       margin: 0;
       color: var(--ink);
-      background: radial-gradient(circle at 20% 20%, rgba(249, 115, 22, 0.12), transparent 40%),
-        radial-gradient(circle at 80% 0%, rgba(14, 116, 144, 0.12), transparent 45%),
-        linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(180, 83, 9, 0.12), transparent 42%),
+        radial-gradient(circle at 85% 0%, rgba(14, 116, 144, 0.08), transparent 38%),
+        repeating-linear-gradient(180deg, rgba(72, 48, 20, 0.05) 0px, rgba(72, 48, 20, 0.05) 1px, transparent 1px, transparent 28px),
+        linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
       min-height: 100vh;
     }
     .container {
-      max-width: 980px;
-      margin: 32px auto 48px;
-      padding: 36px 40px 48px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 20px;
+      max-width: 960px;
+      margin: 36px auto 56px;
+      padding: 36px 44px 52px;
+      background: var(--card);
+      border-radius: 18px;
       box-shadow: var(--shadow);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(72, 48, 20, 0.16);
+      position: relative;
+      overflow: hidden;
+    }
+    .container::before {
+      content: "";
+      position: absolute;
+      left: 54px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(180, 83, 9, 0.2);
     }
     .site-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px dashed rgba(72, 48, 20, 0.2);
       padding-bottom: 18px;
       margin-bottom: 32px;
     }
     h1, h2, h3 {
-      font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+      font-family: "ZCOOL XiaoWei", "LXGW WenKai", "Songti SC", serif;
       color: var(--ink-strong);
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
     }
     h1 { font-size: 2.4em; margin: 0 0 18px 0; }
     h2 { font-size: 1.7em; margin-top: 36px; margin-bottom: 18px; }
     .site-title {
-      font-size: 1.9em;
+      font-size: 2em;
       font-weight: 700;
-      background: linear-gradient(135deg, #111827 0%, #f97316 100%);
+      background: linear-gradient(135deg, #2f2a24 0%, #b45309 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -71,11 +85,10 @@
       padding: 6px 12px;
       border-radius: 999px;
       transition: all 0.2s ease;
+      background: rgba(180, 83, 9, 0.08);
     }
     nav a:hover { color: var(--ink); background: var(--brand-soft); }
-    nav a[aria-current="page"] { color: var(--ink); background: rgba(249, 115, 22, 0.22); }
-    ul { list-style: none; padding: 0; }
-    li { margin-bottom: 15px; }
+    nav a[aria-current="page"] { color: var(--ink); background: rgba(180, 83, 9, 0.22); }
     a { color: var(--brand-deep); text-decoration: none; font-weight: 600; }
     a:hover { text-decoration: underline; }
     a:focus-visible {
@@ -85,10 +98,10 @@
     }
     main { animation: fadeUp 0.6s ease both; }
     .hero {
-      background: linear-gradient(135deg, rgba(249, 115, 22, 0.12), rgba(14, 116, 144, 0.08));
-      border-radius: 18px;
-      padding: 24px 28px;
-      border: 1px solid rgba(249, 115, 22, 0.2);
+      background: linear-gradient(135deg, rgba(180, 83, 9, 0.12), rgba(14, 116, 144, 0.08));
+      border-radius: 16px;
+      padding: 22px 26px;
+      border: 1px solid rgba(180, 83, 9, 0.2);
       box-shadow: var(--soft-shadow);
     }
     .hero-title {
@@ -112,7 +125,7 @@
       background: var(--card);
       border-radius: 16px;
       padding: 18px 20px;
-      border: 1px solid var(--border);
+      border: 1px dashed rgba(72, 48, 20, 0.25);
       box-shadow: var(--soft-shadow);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -145,11 +158,14 @@
       list-style: disc;
       padding-left: 1.2em;
     }
+    .post-content ol {
+      padding-left: 1.4em;
+    }
     .post-content blockquote {
       margin: 16px 0;
       padding: 12px 16px;
-      border-left: 3px solid rgba(249, 115, 22, 0.4);
-      background: rgba(249, 115, 22, 0.08);
+      border-left: 3px solid rgba(180, 83, 9, 0.4);
+      background: rgba(180, 83, 9, 0.08);
       border-radius: 10px;
       color: #4b5563;
     }
@@ -169,7 +185,7 @@
       background: var(--card);
       border-radius: 18px;
       padding: 24px 28px;
-      border: 1px solid var(--border);
+      border: 1px dashed rgba(72, 48, 20, 0.25);
       box-shadow: var(--soft-shadow);
     }
     .article-meta {
@@ -184,8 +200,8 @@
     .pill {
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(249, 115, 22, 0.12);
-      color: #9a3412;
+      background: rgba(180, 83, 9, 0.12);
+      color: #7c2d12;
       font-weight: 600;
       font-size: 0.85em;
     }
@@ -207,6 +223,7 @@
     }
     @media (max-width: 920px) {
       .container { margin: 20px; padding: 28px; }
+      .container::before { left: 40px; }
     }
     @media (max-width: 768px) {
       .container { margin: 16px; padding: 22px; }
